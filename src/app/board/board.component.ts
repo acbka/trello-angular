@@ -17,7 +17,7 @@ export class BoardComponent implements OnInit {
    editable : boolean = true
    boards : Board[] = Boards
    title = ''
-   notes : Note[] = Notes
+   notes : Note[] = []
    
   
 
@@ -51,8 +51,7 @@ export class BoardComponent implements OnInit {
 
    createNote(){
       let note = new Note()
-     this.notes.push(note) 
-      console.log("hbkkjj")
+      this.notes.push(note) 
    }
 
   ngOnInit() {

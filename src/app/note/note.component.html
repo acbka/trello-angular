@@ -12,7 +12,8 @@
       (click)="submit()"
       >done_outline</i>
    </form>
-
+   <div class="overlay" *ngIf="showed" (click)="removeOverlay()">
+   </div>
    <div class="pop-up" *ngIf="showed">
       <div class="pop-action" (click)="edit()">
          <i class="material-icons edit">edit</i>

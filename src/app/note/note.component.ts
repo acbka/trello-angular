@@ -18,10 +18,13 @@ export class NoteComponent implements OnInit {
 
   constructor() { }
 
-  more(){
-    this.showed = !this.showed
-  }
-
+    more(){
+      this.showed = !this.showed
+      console.log(this.showed)
+   }
+   removeOverlay(){
+      this.showed = false
+   }
    edit(){
       this.showed = !this.showed
       this.editable = !this.editable
@@ -56,6 +59,7 @@ export class NoteComponent implements OnInit {
    }
 
   ngOnInit() {
+
   }
 
 }

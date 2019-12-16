@@ -15,6 +15,7 @@
    display: flex;
    justify-content: space-between;
    align-items: center;
+   position: relative;
 }
 
 .note:hover {
@@ -37,7 +38,6 @@
    width: 100%;
    display: flex;
    justify-content: space-between;
-   position: relative;
 }
 
 .name{
@@ -65,7 +65,9 @@ input{
    border-radius: 4px;
    box-shadow: 0px 1px 0px 0px #c9cfd4;
    position: absolute;
-   left: 310px;
+   left: 260px;
+   opacity: 1!important;
+   z-index: 2;
 }
 .pop-action{
    cursor: pointer;
@@ -93,4 +95,13 @@ input{
    .name{
       text-decoration: line-through;
    }
+}
+
+.overlay{
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100vh;
+   z-index: 1;
 }
