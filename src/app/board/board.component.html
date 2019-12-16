@@ -1,0 +1,25 @@
+<div class="column-header">
+   <div class="caption" *ngIf="editable">
+      <span>   
+         {{board.title}}
+      </span>
+      <i class="material-icons icon" 
+         (click)="edit()"
+      >edit</i>
+   </div>
+
+   <form *ngIf="!editable">
+      <input class="input" type="text" name="boardTitle"   value={{board.title}}
+      (keyup)="onKey($event)">
+      <i class="material-icons icon" 
+      (click)="submit()"
+   >done_outline</i>
+   </form>
+</div>
+<div class="column-body" data-notes>
+   <app-note *ngFor="let note of notes"
+   [note]=note></app-note>
+</div>
+<div class="column-footer" (click)="createNote()">
+   <span data-action-addNote class="action">+ Добавить карточку</span>
+</div>

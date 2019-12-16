@@ -1,0 +1,6 @@
+<div class="columns" id="columns">
+   <app-board class="column"  *ngFor="let item of boards" [board] = item></app-board>
+</div>
+<div class="adder" (click)="addBoard()">
+   <span data-action-addColumn class="action">+ Добавить колонку</span>
+</div>

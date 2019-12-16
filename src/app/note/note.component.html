@@ -1,0 +1,31 @@
+<div class="note" [ngClass]="{'done': completed}">
+   <div class="note-header" *ngIf="editable">
+     <span class="name" >{{note.name}}</span> 
+      <i class="material-icons icon" 
+      (click)="more()"
+   >more_vert</i>
+   </div>
+   <form class="form" *ngIf="!editable">
+      <input class="input" type="text" name="noteName"   value={{note.name}}
+      (keyup)="onKey($event)">
+      <i class="material-icons icon" 
+      (click)="submit()"
+      >done_outline</i>
+   </form>
+
+   <div class="pop-up" *ngIf="showed">
+      <div class="pop-action" (click)="edit()">
+         <i class="material-icons edit">edit</i>
+         <span>edit</span>
+      </div>
+      <div class="pop-action" (click)="done()">
+         <i class="material-icons">done_outline</i>
+         <span>done</span>
+      </div>
+   </div>
+   
+   
+</div>
+
+  
+
