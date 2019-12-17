@@ -3,7 +3,7 @@ import { Component, OnInit, Input, Output } from '@angular/core';
 import { Board } from '../board';
 import { Boards } from '../boards';
 import { Note } from '../note';
-import { Notes } from '../Notes';
+import { Notes } from '../notes';
 
 @Component({
   selector: 'app-board',

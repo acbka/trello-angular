@@ -1,6 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Note } from '../note';
-import { Notes } from '../Notes';
 
 @Component({
   selector: 'app-note',
@@ -15,7 +13,7 @@ export class NoteComponent implements OnInit {
    showed : boolean = false;
    name : string = "";
    
-   completed : boolean; 
+   completed : boolean = false; 
 
   constructor() { }
 
@@ -58,11 +56,6 @@ export class NoteComponent implements OnInit {
       this.showed = !this.showed
       this.note.completed = !this.note.completed
       this.completed = this.note.completed
-      if (this.completed) {
-         document.querySelector(".edit-action").setAttribute('disabled','disabled')
-      } else {
-         document.querySelector(".edit-action").removeAttribute('disabled')
-      }
    }
 
   ngOnInit() {

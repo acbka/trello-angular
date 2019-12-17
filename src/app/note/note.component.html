@@ -15,13 +15,17 @@
    <div class="overlay" *ngIf="showed" (click)="removeOverlay()">
    </div>
    <div class="pop-up" *ngIf="showed">
-      <button class="pop-action edit-action" [ngClass]="{'disabled': completed}" (click)="edit()">
+      <button class="pop-action" id="edit-button" [ngClass]="{'disabled': completed}" [attr.disabled]="completed ? 'disabled' : null" (click)="edit()">
          <i class="material-icons">edit</i>
          <span>edit</span>
       </button>
-      <button class="pop-action" (click)="done()">
+      <button class="pop-action" *ngIf="!completed"  (click)="done()">
          <i class="material-icons">done_outline</i>
          <span>done</span>
+      </button>
+      <button class="pop-action" *ngIf="completed" (click)="done()">
+         <i class="material-icons">settings_backup_restore</i>
+         <span>restore</span>
       </button>
    </div>
    

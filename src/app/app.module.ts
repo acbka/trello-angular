@@ -6,15 +6,13 @@ import { AppComponent } from './app.component';
 import { BoardComponent } from './board/board.component';
 import { NoteComponent } from './note/note.component';
 import { BoardRowComponent } from './board-row/board-row.component';
-import { EditDirective } from './edit.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     BoardComponent,
     NoteComponent,
-    BoardRowComponent,
-    EditDirective
+    BoardRowComponent
   ],
   imports: [
     BrowserModule,

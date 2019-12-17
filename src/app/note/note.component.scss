@@ -105,14 +105,18 @@ input{
    height: 100vh;
    z-index: 1;
 }
+
 button{
    background: #f1f1f1;
    width: 100px;
    margin: 5px;
 }
+
 .disabled{
    opacity: .5;
+   cursor: default!important;
 }
+
 .disabled:hover{
    background: #f1f1f1;
    box-shadow: none;
