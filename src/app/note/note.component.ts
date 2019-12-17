@@ -9,22 +9,24 @@ import { Notes } from '../Notes';
 })
 export class NoteComponent implements OnInit {
    @Input() note
+   @Input() notes
 
-   editable : boolean = true
-   showed : boolean = false
-   name : string = ""
-   notes : Note[] = Notes
-   completed : boolean 
+   editable : boolean = true;
+   showed : boolean = false;
+   name : string = "";
+   
+   completed : boolean; 
 
   constructor() { }
 
-    more(){
+   more(){
       this.showed = !this.showed
-      console.log(this.showed)
    }
+
    removeOverlay(){
       this.showed = false
    }
+   
    edit(){
       this.showed = !this.showed
       this.editable = !this.editable
@@ -32,8 +34,8 @@ export class NoteComponent implements OnInit {
 
    submit(){
       event.preventDefault()
-      if (this.name != '') {
-         this.newName()
+      if (this.name != "") {
+         this.newName() 
       } else {
          this.editable = !this.editable
       }
@@ -56,6 +58,11 @@ export class NoteComponent implements OnInit {
       this.showed = !this.showed
       this.note.completed = !this.note.completed
       this.completed = this.note.completed
+      if (this.completed) {
+         document.querySelector(".edit-action").setAttribute('disabled','disabled')
+      } else {
+         document.querySelector(".edit-action").removeAttribute('disabled')
+      }
    }
 
   ngOnInit() {

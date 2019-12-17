@@ -1,5 +1,5 @@
-<div class="note" [ngClass]="{'done': completed}">
-   <div class="note-header" *ngIf="editable">
+<div class="note">
+   <div class="note-header" *ngIf="editable"  [ngClass]="{'done': completed}">
      <span class="name" >{{note.name}}</span> 
       <i class="material-icons icon" 
       (click)="more()"
@@ -15,14 +15,14 @@
    <div class="overlay" *ngIf="showed" (click)="removeOverlay()">
    </div>
    <div class="pop-up" *ngIf="showed">
-      <div class="pop-action" (click)="edit()">
-         <i class="material-icons edit">edit</i>
+      <button class="pop-action edit-action" [ngClass]="{'disabled': completed}" (click)="edit()">
+         <i class="material-icons">edit</i>
          <span>edit</span>
-      </div>
-      <div class="pop-action" (click)="done()">
+      </button>
+      <button class="pop-action" (click)="done()">
          <i class="material-icons">done_outline</i>
          <span>done</span>
-      </div>
+      </button>
    </div>
    
    

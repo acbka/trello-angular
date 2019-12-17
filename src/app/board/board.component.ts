@@ -51,7 +51,8 @@ export class BoardComponent implements OnInit {
 
    createNote(){
       let note = new Note()
-      this.notes.push(note) 
+      this.notes.push(note)
+      
    }
 
   ngOnInit() {

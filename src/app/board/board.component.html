@@ -18,7 +18,7 @@
 </div>
 <div class="column-body" data-notes>
    <app-note *ngFor="let note of notes"
-   [note]=note></app-note>
+   [note]=note [notes] = notes></app-note>
 </div>
 <div class="column-footer" (click)="createNote()">
    <span data-action-addNote class="action">+ Add a note</span>
