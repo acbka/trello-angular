@@ -1,7 +1,8 @@
 import { Board } from './board';
 
 export const Boards: Board[] = [
-   {title: 'first',
+   {id: 0,
+   title: 'first',
    notes : [],
    },
 ]

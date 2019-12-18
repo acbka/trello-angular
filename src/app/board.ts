@@ -4,8 +4,7 @@ export class Board {
    id : number;
    title : string;
    notes? : Note[];
-   
-   constructor(id){
+   constructor(id : number){
       this.id = id,
       this.title = 'Board',
       this.notes = []
