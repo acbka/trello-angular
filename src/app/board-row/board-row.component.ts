@@ -19,7 +19,7 @@ export class BoardRowComponent implements OnInit {
    constructor() { }
 
    addBoard(){
-      let id : number = this.boards.length + 1
+      let id : number = this.boards.length
       let board = new Board(id)
       this.boards.push(board)
    }

@@ -1,5 +1,5 @@
-<div cdkDropList class="columns" id="columns" (cdkDropListDropped)="drop($event)" cdkDropListOrientation="horizontal">
-   <app-board cdkDrag class="column"  *ngFor="let item of boards" [board] = item></app-board>
+<div cdkDropList (cdkDropListDropped)="drop($event)" cdkDropListOrientation="horizontal" class="columns" id="columns">
+   <app-board cdkDrag  class="column"  *ngFor="let item of boards" [board] = item></app-board>
 </div>
 <div class="adder" (click)="addBoard()">
    <span class="action">+ Add a board</span>
