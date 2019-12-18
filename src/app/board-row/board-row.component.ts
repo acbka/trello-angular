@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Boards } from '../boards';
 import { Board } from '../board';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-board-row',
@@ -12,14 +13,20 @@ import { Board } from '../board';
 export class BoardRowComponent implements OnInit {
    
    boards: Board[] = Boards
+   index: number
    
 
    constructor() { }
 
    addBoard(){
-      let board = new Board()
+      let id : number = this.boards.length + 1
+      let board = new Board(id)
       this.boards.push(board)
    }
+
+   drop(event: CdkDragDrop<string[]>) {
+      moveItemInArray(this.boards, event.previousIndex, event.currentIndex);
+    }
 
    ngOnInit() {
    }

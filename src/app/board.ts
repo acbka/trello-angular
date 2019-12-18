@@ -1,6 +1,13 @@
 import { Note } from './note';
 
 export class Board {
-   title : string = 'Board';
-   notes : Note[]
+   id : number;
+   title : string;
+   notes? : Note[];
+   
+   constructor(id){
+      this.id = id,
+      this.title = 'Board',
+      this.notes = []
+   }
 }
