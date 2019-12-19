@@ -25,9 +25,9 @@ export class BoardRowComponent implements OnInit {
    }
 
    drop(event: CdkDragDrop<string[]>) {
-      moveItemInArray(this.boards, event.previousIndex, event.currentIndex);
-    }
-
+       moveItemInArray(this.boards, event.previousIndex, event.currentIndex);
+   }
+   
    ngOnInit() {
    }
 

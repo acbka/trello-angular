@@ -16,6 +16,33 @@
    >done_outline</i>
    </form>
 </div>
+<div cdkDropList class="column-body" [cdkDropListData]="board.notes" (cdkDropListDropped)="onTaskDrop($event)">
+   <app-note cdkDrag class="note" *ngFor="let note of board.notes"
+   [note]=note [notes] = board.notes></app-note>
+</div>
+<div class="column-footer" (click)="createNote()">
+   <span class="action">+ Add a note</span>
+</div>
+
+<!--
+   <div class="column-header">
+   <div class="caption" *ngIf="editable">
+      <span>   
+         {{board.title}}
+      </span>
+      <i class="material-icons icon" 
+         (click)="edit()"
+      >edit</i>
+   </div>
+
+   <form *ngIf="!editable">
+      <input class="input" type="text" name="boardTitle"   value={{board.title}}
+      (keyup)="onKey($event)">
+      <i class="material-icons icon" 
+      (click)="submit()"
+   >done_outline</i>
+   </form>
+</div>
 <div class="column-body">
    <app-note class="note" *ngFor="let note of board.notes"
    [note]=note [notes] = board.notes></app-note>
@@ -23,3 +50,5 @@
 <div class="column-footer" (click)="createNote()">
    <span class="action">+ Add a note</span>
 </div>
+
+-->
