@@ -1,5 +1,5 @@
  h1{
-    margin: 0;
+   margin: 0;
  }
  .container{
    position: relative;
@@ -20,14 +20,11 @@
       padding-right: 20px;
    }
  }
-
 .row {
    display: flex;
    align-items: flex-start;
-
    height: 100%;
 }
-
 .trash{
    position: absolute;
    right: 0;
@@ -41,5 +38,6 @@
 @media screen and (max-width: 650px){
    .row{
       flex-direction: column;
+      align-items: center; 
    }
 }

@@ -1,6 +1,7 @@
 <div cdkDropListGroup  class="columns" id="columns">
    <app-board class="column" 
-   *ngFor="let item of boards" [board] = item></app-board>
+      *ngFor="let item of boards" [board] = item>
+   </app-board>
 </div>
 <div class="adder" (click)="addBoard()">
    <span class="action">+ Add a board</span>
