@@ -13,6 +13,7 @@
    background: #2374b2;
    opacity: .6;
    padding: 10px;
+   margin-bottom: 20px;
    box-shadow: 2px 2px 5px 0 rgba(0,0,0,0.24);
    color: white;
    img{
@@ -23,8 +24,7 @@
 .row {
    display: flex;
    align-items: flex-start;
-   overflow-x: auto;
-   overflow-y: hidden;
+
    height: 100%;
 }
 
@@ -35,5 +35,11 @@
    img{
        padding: 20px;
    }
-  
+}
+
+
+@media screen and (max-width: 650px){
+   .row{
+      flex-direction: column;
+   }
 }

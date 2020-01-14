@@ -3,13 +3,18 @@
       <span>   
          {{board.title}}
       </span>
-      <i class="material-icons icon" 
+      <div class="icons">
+         <i class="material-icons icon" title="edit"
          (click)="edit()"
-      >edit</i>
+         >edit</i>
+         <i class="material-icons icon delete" title="delete"
+         (click)="delete()"
+         >delete</i>
+      </div>
    </div>
-
+   <div class="overlay" *ngIf="!editable"  (click)="submit()"></div>
    <form *ngIf="!editable">
-      <input class="input" type="text" name="boardTitle"   value={{board.title}}
+      <input class="input" type="text" name="boardTitle" value={{board.title}} autofocus
       (keyup)="onKey($event)">
       <i class="material-icons icon" 
       (click)="submit()"

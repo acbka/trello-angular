@@ -54,6 +54,18 @@ export class BoardComponent implements OnInit {
       this.board.notes.push(note)
    }
 
+   delete(){
+      let numberOfNotes = this.board.notes.length;
+      let result = false;
+      if (numberOfNotes > 0) {
+         result = confirm("Are you sure?");
+      }
+      if(numberOfNotes == 0 || result){
+         let index = this.boards.indexOf(this.board);
+         this.boards.splice(index, 1);
+      } 
+   }
+
    onTaskDrop(event: CdkDragDrop<string[]>) {
       if (event.previousContainer === event.container) {
         moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);

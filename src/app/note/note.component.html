@@ -1,12 +1,15 @@
-
-   <div class="note-header" *ngIf="editable"  [ngClass]="{'done': completed}">
+   
+   <div class="note-header" 
+   *ngIf="editable" 
+   [ngClass]="{'done': completed}" (dblclick)="editByClick()">
      <span class="name" >{{note.name}}</span> 
       <i class="material-icons icon" 
       (click)="more()"
    >more_vert</i>
    </div>
    <form class="form" *ngIf="!editable">
-      <input class="input" type="text" name="noteName"   value={{note.name}}
+      <div class="overlay" *ngIf="!editable"  (click)="submit()"></div>
+      <input class="input" type="text" name="noteName" value={{note.name}} autofocus
       (keyup)="onKey($event)">
       <i class="material-icons icon" 
       (click)="submit()"
@@ -15,7 +18,10 @@
    <div class="overlay" *ngIf="showed" (click)="removeOverlay()">
    </div>
    <div class="pop-up" *ngIf="showed">
-      <button class="pop-action" id="edit-button" [ngClass]="{'disabled': completed}" [attr.disabled]="completed ? 'disabled' : null" (click)="edit()">
+      <button class="pop-action" id="edit-button" 
+      [ngClass]="{'disabled': completed}" 
+      [attr.disabled] = "completed ? 'disabled' : null" 
+      (click)="edit()">
          <i class="material-icons">edit</i>
          <span>edit</span>
       </button>
@@ -26,6 +32,10 @@
       <button class="pop-action" *ngIf="completed" (click)="done()">
          <i class="material-icons">settings_backup_restore</i>
          <span>restore</span>
+      </button>
+      <button class="pop-action" id="edit-button" (click)="delete()">
+         <i class="material-icons">delete</i>
+         <span>delete</span>
       </button>
    </div>
 

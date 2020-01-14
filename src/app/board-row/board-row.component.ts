@@ -42,8 +42,6 @@ export class BoardRowComponent implements OnInit {
       this.allBoardsNode = document.getElementsByClassName("column")
       this.allBoardsArray = Array.from(this.allBoardsNode)
       //this.allBoardsArray = [...this.allBoardsNode]
-      console.log(this.allBoardsNode)
-      console.log(this.allBoardsArray)
       
       this.allBoardsArray.forEach(board => {
          board.addEventListener("dragstart", this.onDragStart)
