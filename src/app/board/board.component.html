@@ -5,11 +5,11 @@
       </span>
       <div class="icons">
          <i class="material-icons icon" title="edit"
-         (click)="edit()"
-         >edit</i>
+         (click)="edit()">
+         edit</i>
          <i class="material-icons icon delete" title="delete"
-         (click)="delete()"
-         >delete</i>
+         (click)="prepareToDelete()">
+         delete</i>
       </div>
    </div>
    <div class="overlay" *ngIf="!editable"  (click)="submit()"></div>
@@ -28,6 +28,10 @@
 <div class="column-footer" (click)="createNote()">
    <span class="action">+ Add a note</span>
 </div>
+
+<app-modal *ngIf="visible"
+(onChosen)="onChosen($event)"></app-modal>
+
 
 <!--
    <div class="column-header">

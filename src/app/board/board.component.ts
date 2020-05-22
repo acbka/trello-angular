@@ -16,6 +16,7 @@ export class BoardComponent implements OnInit {
    @Input() board
 
    editable : boolean = true
+   visible : boolean = false
    boards : Board[] = Boards
    title = ''
    
@@ -54,6 +55,26 @@ export class BoardComponent implements OnInit {
       this.board.notes.push(note)
    }
 
+   prepareToDelete(){
+      let numberOfNotes = this.board.notes.length;
+     
+      if (numberOfNotes > 0) {
+         this.visible = true;
+      } else this.delete();
+   }
+
+   delete(){
+      let index = this.boards.indexOf(this.board);
+      this.boards.splice(index, 1);
+   }
+
+   onChosen(result){
+      this.visible = false; 
+      if(result){
+         this.delete()
+      }
+   }
+/*
    delete(){
       let numberOfNotes = this.board.notes.length;
       let result = false;
@@ -65,7 +86,7 @@ export class BoardComponent implements OnInit {
          this.boards.splice(index, 1);
       } 
    }
-
+*/
    onTaskDrop(event: CdkDragDrop<string[]>) {
       if (event.previousContainer === event.container) {
         moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
