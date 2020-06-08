@@ -1,6 +1,8 @@
 import { Board } from './board';
 
-export const Boards: Board[] = [
+//localStorage.clear();
+
+export const Boards: Board[] = JSON.parse(localStorage.getItem("trello")) ||[
    {id: 0,
    title: 'First',
    notes : [],

@@ -1,7 +1,7 @@
    
    <div class="note-header" 
    *ngIf="editable" 
-   [ngClass]="{'done': completed}" (dblclick)="editByClick()">
+   [ngClass]="{'done': note.completed}" (dblclick)="editByClick()">
      <span class="name" >{{note.name}}</span> 
       <i class="material-icons icon" 
       (click)="more()"
@@ -19,17 +19,17 @@
    </div>
    <div class="pop-up" *ngIf="showed">
       <button class="pop-action" id="edit-button" 
-      [ngClass]="{'disabled': completed}" 
-      [attr.disabled] = "completed ? 'disabled' : null" 
+      [ngClass]="{'disabled': note.completed}" 
+      [attr.disabled] = "note.completed ? 'disabled' : null" 
       (click)="edit()">
          <i class="material-icons">edit</i>
          <span>edit</span>
       </button>
-      <button class="pop-action" *ngIf="!completed"  (click)="done()">
+      <button class="pop-action" *ngIf="!note.completed"  (click)="done()">
          <i class="material-icons">done_outline</i>
          <span>done</span>
       </button>
-      <button class="pop-action" *ngIf="completed" (click)="done()">
+      <button class="pop-action" *ngIf="note.completed" (click)="done()">
          <i class="material-icons">settings_backup_restore</i>
          <span>restore</span>
       </button>

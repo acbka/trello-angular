@@ -10,11 +10,12 @@ export class TrelloService {
    notes: Note[] = Notes
 
   constructor() { }
-
+/*
    addNote(){
-      let note = new Note()
+      let id : number = this.notes.length
+      let note = new Note(id)
       this.notes.push(note)  
       console.log("service")
    }
-
+*/
 }

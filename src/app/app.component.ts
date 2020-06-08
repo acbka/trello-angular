@@ -13,6 +13,9 @@ export class AppComponent {
 
   boards: Board[] = Boards
 
+
+ 
+
   drop(event: CdkDragDrop<string[]>) {
    moveItemInArray(this.boards, event.previousIndex, event.currentIndex);
  }

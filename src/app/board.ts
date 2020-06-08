@@ -10,3 +10,5 @@ export class Board {
       this.notes = []
    }
 }
+
+

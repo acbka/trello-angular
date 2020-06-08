@@ -19,40 +19,47 @@ export class BoardComponent implements OnInit {
    visible : boolean = false
    boards : Board[] = Boards
    title = ''
+   notes: Note[] = Notes;
    
   
 
   constructor() {}
 
    edit(){
-      this.editable = !this.editable
+      this.editable = !this.editable;
+      this.save()
    }
 
    submit(){
       event.preventDefault()
       if (this.title != '') {
-         this.newTitle()
+         this.newTitle();
       } else {
-         this.editable = !this.editable
+         this.editable = !this.editable;
       }
+      this.save();
    }
 
    newTitle(){
-      this.editable = !this.editable
-      let index = this.boards.indexOf(this.board)
-      this.boards[index].title = this.title
+      this.editable = !this.editable;
+      let index = this.boards.indexOf(this.board);
+      this.boards[index].title = this.title;
+      this.save();
    }
    
    onKey(event){
       if (event.keyCode == 13) {
-         this.newTitle()
+         this.newTitle();
       }     
-      this.title = event.target.value.slice(0,20)
+      this.title = event.target.value.slice(0,20);
+      this.save();
    }
 
    createNote(){
-      let note = new Note()
-      this.board.notes.push(note)
+      let id : number = this.board.notes.length;
+      let note = new Note(id);
+      this.board.notes.push(note); 
+      this.save();
    }
 
    prepareToDelete(){
@@ -66,13 +73,19 @@ export class BoardComponent implements OnInit {
    delete(){
       let index = this.boards.indexOf(this.board);
       this.boards.splice(index, 1);
+      this.save();
    }
 
    onChosen(result){
       this.visible = false; 
       if(result){
-         this.delete()
+         this.delete();
       }
+   }
+
+   save(){
+      const json = JSON.stringify(Boards);
+      localStorage.setItem("trello", json);
    }
 /*
    delete(){
@@ -96,6 +109,7 @@ export class BoardComponent implements OnInit {
                           event.previousIndex,
                           event.currentIndex);
       }
+      this.save();
     }
 
   ngOnInit() {

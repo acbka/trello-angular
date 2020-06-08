@@ -28,14 +28,18 @@ export class BoardRowComponent implements OnInit {
       let board = new Board(id)
       this.boards.push(board)
       this.draggedArray()
+      this.save()
+   }
 
+   save(){
+      const json = JSON.stringify(Boards)
+      localStorage.setItem("trello", json);
    }
 
    drop(event: CdkDragDrop<string[]>) {
        moveItemInArray(this.boards, event.previousIndex, event.currentIndex);
+       this.save();
    }
-
-
 
    draggedArray(){
       //this.indexStart = this.boards.indexOf(item)
@@ -76,7 +80,7 @@ export class BoardRowComponent implements OnInit {
    }
 
    ngOnInit() {
-      this.draggedArray()
+     
    }
 
 }
